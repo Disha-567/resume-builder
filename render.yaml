@@ -7,10 +7,10 @@ services:
     buildCommand: npm install
     startCommand: node server.js
 
-  - type: static
+  - type: web
     name: resume-builder-frontend
     env: static
     branch: main
     rootDir: client
+    staticPublishPath: dist
     buildCommand: npm install && npm run build
-    publishPath: dist
