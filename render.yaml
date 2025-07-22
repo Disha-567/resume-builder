@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: resume-builder-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run dev
+    branch: main
+    rootDir: server
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+  - type: web
+    name: resume-builder-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    branch: main
+    rootDir: client
